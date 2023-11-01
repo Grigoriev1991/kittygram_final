@@ -31,5 +31,5 @@ services:
     ports:
       - 9000:80
     volumes:
-      - media_volume:/home/kittygram/media
-      - static_volume:/home/kittygram/static
+      - media_volume:/kittygram/media
+      - static_volume:/kittygram/static
