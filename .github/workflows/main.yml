@@ -108,8 +108,6 @@ jobs:
     needs: build_and_push_kittygram_images
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
       - name: Add Kittygram to runner
         uses: actions/checkout@v3
       - name: Copy docker-compose.yml to server via ssh
@@ -130,13 +128,13 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             cd kittygram
-            sudo docker compose pull
-            sudo docker compose down
-            sudo docker compose up -d
+            sudo docker compose -f docker-compose.yml pull
+            sudo docker compose -f docker-compose.yml down
+            sudo docker compose -f docker-compose.yml up -d
             sudo docker compose exec backend python manage.py makemigrations cats
-            sudo docker compose exec backend python manage.py migrate
-            sudo docker compose exec backend python manage.py collectstatic
-            sudo docker compose exec backend cp -r /kittygram/collect_static/. /backend_static/static/
+            sudo docker compose -f docker-compose.yml exec backend python manage.py migrate
+            sudo docker compose -f docker-compose.yml exec backend python manage.py collectstatic
+            sudo docker compose -f docker-compose.yml exec backend cp -r /kittygram/collect_static/. /backend_static/static/
             sudo systemctl restart nginx
 
   send_message_telegram:
