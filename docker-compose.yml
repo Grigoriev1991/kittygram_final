@@ -32,4 +32,4 @@ services:
       - 9000:80
     volumes:
       - media_volume:/backend_media
-      - static_volume:/backend_static
+      - static_volume:/static/
