@@ -14,19 +14,19 @@ services:
   backend:
     depends_on:
       - postgres_db
-    build: ./backend/
+    image: grigoriev1991/kittygram_backend
     env_file: .env
     volumes:
       - media_volume:/backend_media
       - static_volume:/backend_static
   frontend:
-    build: ./frontend/
+    image: grigoriev1991/kittygram_frontend
     env_file: .env
-    command: cp -r /app/build/. /static/
     volumes:
       - static_volume:/frontend_static
+    command: cp -r /app/build/. /static/
   gateway:
-    build: ./nginx/
+    image: grigoriev1991/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
