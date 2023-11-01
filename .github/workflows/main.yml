@@ -108,6 +108,8 @@ jobs:
     needs: build_and_push_kittygram_images
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
       - name: Add Kittygram to runner
         uses: actions/checkout@v3
       - name: Copy docker-compose.yml to server via ssh
