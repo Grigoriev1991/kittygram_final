@@ -109,14 +109,14 @@ jobs:
     steps:
       - name: Add Kittygram to runner
         uses: actions/checkout@v3
-      - name: Copy docker-compose.yml to server via ssh
+      - name: Copy docker-compose.production.yml to server via ssh
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          source: "docker-compose.yml"
+          source: "docker-compose.production.yml"
           target: "kittygram"
       - name: Executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
