@@ -18,7 +18,7 @@ services:
     image: grigoriev1991/kittygram_backend
     env_file: .env
     volumes:
-      - media_volume_prod:/backend_media
+      - media_volume_prod:/media
       - static_volume_prod:/backend_static
 
   frontend:

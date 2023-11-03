@@ -18,7 +18,7 @@ services:
     build: ./backend/
     env_file: .env
     volumes:
-      - media_volume:/backend_media
+      - media_volume:/media
       - static_volume:/backend_static
 
   frontend:
