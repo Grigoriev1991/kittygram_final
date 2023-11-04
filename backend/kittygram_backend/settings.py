@@ -2,11 +2,13 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', '12345')
 
-DEBUG = False
+DEBUG = os.getenv('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['hello-kitty.hopto.org', 'localhost', '127.0.0.1']
 
