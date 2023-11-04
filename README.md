@@ -49,7 +49,7 @@ sudo docker compose -f docker-compose.production.yml exec backend python manage.
 sudo docker compose -f docker-compose.production.yml exec backend python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 # В ответ будет примерно такая строка: cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-88$
 # Вставляем в .env файл. Должно получиться примерно такое:
-DJANGO_KEY=django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-88$
+DJANGO_KEY=django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4-q*uq1!4$-88$
 ```
 
 Устанавливаем и настраиваем NGINX
@@ -124,5 +124,3 @@ sudo systemctl reload nginx
 * #### PostgreSQL
 * #### Docker
 ---
-### Над проектом работал:
-* [Dmitrij Gribkov(Backend)](https://github.com/we5h)
